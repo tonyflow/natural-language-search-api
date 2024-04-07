@@ -3,7 +3,7 @@ from model import StoreRequest, StoreResponse, RetrieveResponse, SearchResponse,
     ChatRequest
 from documents_repo import DocumentsRepository, DocumentsRepositoryFactory
 from typing import List, Tuple
-from llm_client import LLMClient,LLaMAClient
+from llm_client import BERTLLMClient
 
 natural_language_search = FastAPI()
 
@@ -15,7 +15,7 @@ documents_repo: DocumentsRepository = DocumentsRepositoryFactory.create(
     index='test_index'
 )
 
-llm_client: LLaMAClient = LLaMAClient()
+bert_llm_client: BERTLLMClient = BERTLLMClient()
 
 
 @natural_language_search.get("/")
@@ -48,4 +48,4 @@ def search(text: str) -> SearchResponse:
 
 @natural_language_search.post('/chat', status_code=200)
 def chat(chat_request: ChatRequest) -> ChatResponse:
-    return ChatResponse(reply=llm_client.chat(chat_request.message))
+    return ChatResponse(reply=bert_llm_client.ask(chat_request.message))

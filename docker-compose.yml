@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  natural_language_search_api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - elastic_search_cluster
+    networks:
+      - elastic
+
+  elastic_search_cluster:
+    image: elasticsearch:8.12.2
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    networks:
+      - elastic
