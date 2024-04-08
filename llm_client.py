@@ -5,6 +5,15 @@ from typing import List, Tuple
 
 
 class BERTLLMClient:
+    """
+    This LLM client is using Google BERT model for question-answering tasks. The model requires context
+    to work. The pseudo-context provided here is a wikipedia page best matching the search criteria of
+    the user. Once the first most-matching wikipedia page is retrieved, we are providing the context to
+    the model to answer the question.
+
+    The model is NOT fine-tuned and there will be inputs for which the outputs are less than relevant or
+    complete. This is more of a POC to showcase the functionality of a open and free LLM on a QA API.
+    """
     def __init__(self):
         self.tokenizer = BertTokenizer.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
         self.model = BertForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')

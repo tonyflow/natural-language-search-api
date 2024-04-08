@@ -18,6 +18,11 @@ class MatchingDocument(BaseModel):
     score: float
 
 
+class SearchRequest(BaseModel):
+    text: str
+    number_of_results: int
+
+
 class SearchResponse(BaseModel):
     matching_documents: list[MatchingDocument]
 

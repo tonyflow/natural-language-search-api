@@ -4,10 +4,12 @@ services:
     build: .
     ports:
       - "8000:8000"
+
+
+    environment:
+      - ES_CLUSTER=http://elastic_search_cluster
     depends_on:
       - elastic_search_cluster
-    networks:
-      - elastic
 
   elastic_search_cluster:
     image: elasticsearch:8.12.2
@@ -17,5 +19,3 @@ services:
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
-    networks:
-      - elastic
