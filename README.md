@@ -102,7 +102,8 @@ The easiest way to run the code is to use the `docker-compose.yml`. This require
 `docker` and `docker-compose`. After you make sure that both requirements are fulfilled, you can use the `start_up.sh` and
 `clean_up.sh` scripts for both starting the stopping the environment.
 
-Give the environment some time to load or check the logs.
+Starting up the environment for the first time might take 1 minute since the LLM needs to be loaded. It's around 1.3Gb.
+Check the logs to make sure that it's up and running or use the [healthcheck](http://localhost:8000/healthcheck) endpoint.
 
 ## Manually
 
