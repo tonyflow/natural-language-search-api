@@ -1,7 +1,7 @@
 # Tech Spec
 
 This is a REST API to store, retrieve and search natural language documents. It uses Elasticsearch as persistence layer.
-The endpoints exposed are the following
+The endpoints exposed are the following and can be accessed at [localhost](http://localhost:8000/).
 
 ### POST /store
 
@@ -98,8 +98,8 @@ For detailed information about the logs you can navigate to `localhost:8000/docs
 
 ## Using Docker and docker-compose
 
-The easiest way to run the code is to run to use the `docker-compose.yml`. This requires a working installation of
-Docker and `docker-compose`. After you make sure that both requirements are fulfilled, you can use the `start_up.sh` and
+The easiest way to run the code is to use the `docker-compose.yml`. This requires a working installation of
+`docker` and `docker-compose`. After you make sure that both requirements are fulfilled, you can use the `start_up.sh` and
 `clean_up.sh` scripts for both starting the stopping the environment.
 
 Give the environment some time to load or check the logs.
